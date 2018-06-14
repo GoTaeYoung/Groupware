@@ -1,0 +1,11 @@
+1 헤더 jsp   (다른 jsp에서 임포트할 공통 헤더)
+2 푸터 jsp   (위와 같음)
+3 네비 jsp   (위와 같음)
+4 global js  (1 에서 임포트) - form id 통일 and form 이벤트 통일
+
+부드러운 빨강 - #d9534f
+부드러운 노랑 - #f0ad4e
+부드러운 초록 - #5cb85c
+부드러운 파랑 - #337ab7
+
+swil alert

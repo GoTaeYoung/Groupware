@@ -1,0 +1,219 @@
+* {
+	margin: 0 auto;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+a {
+	color: #337ab7;
+}
+
+.same {
+	position: fixed;
+	background-color: #f8f8f8;
+	border: #e7e7e7 1px solid;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+header {
+	width: 100%;
+	height: 80px;
+	z-index: 3;
+}
+
+header li {
+	display: inline-block;
+	line-height: 80px;
+	color: #5e5e5e;
+	padding-left: 20px;
+	font-size: 30px;
+}
+
+header div {
+	float: right;
+	line-height: 80px;
+	margin-right: 60px;
+}
+
+nav {
+	width: 250px;
+	height: 100%;
+	padding-top: 80px;
+}
+
+#mail {
+	margin-top: 20px;
+}
+
+nav li {
+	padding: 20px;
+	border-bottom: #e7e7e7 1px solid;
+	color: #5e5e5e;
+}
+
+#write, #search {
+	display: flex;
+	font-size: 13px;
+	justify-content: center;
+	border-bottom: #e7e7e7 1px solid;
+}
+
+#write li, #search li {
+	background-color: #e7e7e7;
+	border-radius: 10px;
+	border: none;
+	margin: 5px;
+}
+
+#write li {
+	font-size: 18px;
+}
+
+footer {
+	z-index: -2;
+	width: 100%;
+	bottom: 0;
+	height: 50px;
+}
+
+footer h4 {
+	text-align: center;
+	color: #5e5e5e;
+	line-height: 50px;
+}
+
+#container {
+	width: 1250px;
+	height: 800px;
+	position: fixed;
+	left: 20%;
+	top: 10%;
+}
+.subBtn input[type=button] {
+	width: 49%;
+ 	height: 40px;
+}
+#container label{
+	width: 100px;
+	display: inline-block;
+	text-align: center;
+}
+#container > div {
+	border: 1px black solid;
+	margin: 5px;
+	padding: 5px;
+}
+#container > div > input[type=text] {
+	width: 600px;
+	height: 30px;
+}
+#fileSpace {
+	height: 30%;
+}
+#fileSpace > div {
+	width: 100%;
+}
+#fileTop input[type=button] {
+	width: 45%;
+	height: 40px;
+}
+#fileMid {
+	height: 40px;
+}
+#fileMid > div {
+	height: 100%;
+	margin-top: 3px;
+	display: inline-block;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 40px;
+	vertical-align: middle;	
+}
+#fileBot {
+	overflow: auto;
+	margin-top: 5px;
+	height: 64%;
+}
+.fileState, .mailItem {
+	border: 1px solid black;
+	margin: 2px 0;
+}
+.fileState > *, .mailItem > * {
+	margin: 2px;
+	display: inline-block;
+}
+.fileLeft {
+	width: 13%;
+}
+.fileCenter {
+	width: 63%;
+}
+.fileRight {
+	width: 23%;
+}
+#allCheckFile {
+	width: 30px;
+	height: 30px;
+	margin-top: 4px;
+}
+#hiddenFileSpace {
+	display: none;
+}
+#mailCountSpace {
+	border: none;
+	font-size: 40px;
+	display: inline-block;
+}
+#searchDate > input {
+	margin: 0 10px;
+	height: 30px;
+}
+#searchBtn {
+	width: 80px;
+}
+.subMenu > * {
+	margin: 0 10px;
+}
+.subMenu > select {
+	width: 150px;
+	padding: 10px;
+}
+.subMenu > input[type=button] {
+	width: 80px;
+	height: 30px;
+}
+#mailList {
+	height: 68%;
+	overflow: auto;
+}
+.allCheck {
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+}
+.mailItem {
+	padding: 10px 0;
+}
+.mailItem > * {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.mailItem > a {
+	width: 30%;
+}
+.mailItem > *:nth-child(5), .mailItem > *:nth-child(6) {
+	width: 19%;
+	margin-left: 20px;
+}
+.mailItem > *:last-child {
+	float: right;
+}
+.checkMail {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+}

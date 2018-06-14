@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.groupware.dao.MailDao">
+	<select id="getAllMailCount" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM MAIL_TABLE
+		WHERE MAIL_BOX_NAME = #{MAIL_BOX_NAME}
+	</select>
+
+	<select id="getNoReadMailCount" parameterType="String"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM MAIL_TABLE
+		WHERE MAIL_BOX_NAME =
+		#{MAIL_BOX_NAME}
+		AND
+		MAIL_READ = 0
+	</select>
+
+	<insert id="insertMail" parameterType="com.groupware.vo.MAIL_TABLE_VO"
+		useGeneratedKeys="true" keyProperty="MAIL_PK">
+		INSERT INTO MAIL_TABLE (USER_ID,
+		MAIL_SENDER, MAIL_RECEIVER,
+		MAIL_TITLE, MAIL_DATE, MAIL_CONTENT,
+		MAIL_BOX_NAME, MAIL_READ, MAIL_ATTACH) VALUES (
+		#{USER_ID},
+		#{MAIL_SENDER},
+		#{MAIL_RECEIVER},
+		#{MAIL_TITLE},
+		#{MAIL_DATE},
+		#{MAIL_CONTENT},
+		#{MAIL_BOX_NAME},
+		#{MAIL_READ},
+		#{MAIL_ATTACH})
+	</insert>
+
+	<select id="selectMail" parameterType="String"
+		resultType="com.groupware.vo.MAIL_TABLE_VO">
+		SELECT *
+		FROM MAIL_TABLE
+		WHERE MAIL_PK = #{MAIL_PK}
+	</select>
+
+	<select id="selectMailList" parameterType="hashmap"
+		resultType="com.groupware.vo.MAIL_TABLE_VO">
+		SELECT *
+		FROM MAIL_TABLE
+		WHERE
+		${WHERE_TYPE} = #{WHERE_VALUE}
+		<if test="ORDER_TYPE != null">
+			ORDER BY ${ORDER_TYPE}
+		</if>
+	</select>
+
+	<update id="updateMail" parameterType="hashmap">
+		UPDATE MAIL_TABLE
+		SET
+		${UPDATE_TYPE} = #{UPDATE_VALUE}
+		WHERE MAIL_PK = #{MAIL_PK}
+	</update>
+
+	<insert id="insertAttachFileList" parameterType="com.groupware.vo.ATTACH_LIST_TABLE_VO"
+		useGeneratedKeys="true" keyProperty="ATTACH_LIST_PK">
+		INSERT INTO
+		ATTACH_LIST_TABLE
+		(MAIL_PK, ATTACH_SUM_SIZE, ATTACH_SUM_COUNT)
+		VALUES (
+		#{MAIL_PK},
+		#{ATTACH_SUM_SIZE},
+		#{ATTACH_SUM_COUNT})
+	</insert>
+
+	<insert id="insertAttachFile" parameterType="com.groupware.vo.ATTACH_TABLE_VO"
+		useGeneratedKeys="true" keyProperty="ATTACH_PK">
+		INSERT INTO
+		ATTACH_TABLE
+		(ATTACH_LIST_PK, ATTACH_SIZE, ATTACH_NAME, ATTACH_ROUTE)
+		VALUES (
+		#{ATTACH_LIST_PK},
+		#{ATTACH_SIZE},
+		#{ATTACH_NAME},
+		#{ATTACH_ROUTE})
+	</insert>
+
+	<delete id="deleteMail" parameterType="String">
+		DELETE FROM
+		MAIL_TABLE
+		WHERE
+		MAIL_PK = #{MAIL_PK}
+	</delete>
+
+	<select id="selectAttachList" parameterType="String"
+		resultType="com.groupware.vo.ATTACH_LIST_TABLE_VO">
+		SELECT *
+		FROM ATTACH_LIST_TABLE
+		WHERE MAIL_PK = #{MAIL_PK}
+	</select>
+
+	<select id="selectAttach" parameterType="String"
+		resultType="com.groupware.vo.ATTACH_TABLE_VO">
+		SELECT *
+		FROM ATTACH_TABLE
+		WHERE ATTACH_LIST_PK =
+		#{ATTACH_LIST_PK}
+	</select>
+</mapper>
